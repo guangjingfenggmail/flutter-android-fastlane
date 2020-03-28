@@ -17,7 +17,8 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 RUN apt-get update && apt-get install yarn
 
 ## same as minddocdev/flutter
-ARG VERSION=v1.9.1+hotfix.2
+ARG VERSION=v1.12.13-hotfixes
+##v1.9.1+hotfix.2
 
 ENV FLUTTER_PATH=/flutter/bin
 
