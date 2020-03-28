@@ -1,6 +1,5 @@
+#same as minddocdev/flutter
 FROM ubuntu:18.04
-
-LABEL maintainer="development@minddoc.com"
 
 ARG VERSION=v1.9.1+hotfix.2
 
@@ -14,8 +13,33 @@ RUN apt-get update &&\
  ${FLUTTER_PATH}/flutter doctor &&\
  apt autoremove -y &&\
  rm -rf /var/lib/apt/lists/*
+ 
+ RUN dpkg --add-architecture i386 && apt-get update -yqq && apt-get install -y \
+  curl \
+  expect \
+  git \
+  make \
+  libc6:i386 \
+  libgcc1:i386 \
+  libncurses5:i386 \
+  libstdc++6:i386 \
+  zlib1g:i386 \
+  openjdk-8-jdk \
+  wget \
+  unzip \
+  vim \
+  openssh-client \
+  locales \
+  nodejs \
+  npm \
+  && apt-get clean
 
 ENV PATH $PATH:${FLUTTER_PATH}/cache/dart-sdk/bin:${FLUTTER_PATH}
+
+RUN  rm -rf /var/lib/apt/lists/* && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+ENV LANG en_US.UTF-8
+
+## same as trevorwang/android-sdk-fastlane
 ENV LC_ALL=en_US.UTF-8
 ENV LANG=en_US.UTF-8
 
