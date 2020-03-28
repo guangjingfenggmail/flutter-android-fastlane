@@ -20,7 +20,7 @@ ENV PATH $PATH:${FLUTTER_PATH}/cache/dart-sdk/bin:${FLUTTER_PATH}
 ENV LC_ALL=en_US.UTF-8
 ENV LANG=en_US.UTF-8
 
-RUN apt-get install -y build-essential ruby
+RUN apt-get install -y ruby
 RUN gem install bundler
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
