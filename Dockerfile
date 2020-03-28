@@ -1,5 +1,5 @@
 #same as minddocdev/flutter
-FROM mindrunner/docker-android-sdk:latest
+FROM runmymind/docker-android-sdk:latest
 
 ARG VERSION=v1.9.1+hotfix.2
 
